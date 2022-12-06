@@ -5,7 +5,8 @@ import vuetify from './plugins/vuetify'
 import VueSimpleAlert from "vue-simple-alert";
 import VueSweetalert2  from 'vue-sweetalert2';
 import 'sweetalert2/dist/sweetalert2.min.css';
-
+import 'bootstrap/dist/css/bootstrap.css'
+  
 Vue.use(VueSimpleAlert);
 Vue.config.productionTip = false
 Vue.use(VueSweetalert2)

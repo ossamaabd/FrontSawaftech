@@ -1,16 +1,14 @@
 <template>
 <v-app>
   <navbar></navbar>
-      <home></home>
 
-      <overview></overview>
 
-      <experiance :items="items" id="Experiance"></experiance>
+      
       <section class="portfolio" id="Portfolio">
         <h4 class="display-2 text-center">
-          If you don't play, you'll never win.
+          test Sawaftech
         </h4>
-        <div class="pa-4 text-center portfolio">- Mark Menson</div>
+        <div class="pa-4 text-center portfolio"></div>
       </section>
       <contact></contact>
 </v-app>
@@ -21,20 +19,13 @@ import axios from "axios";
 
 import "../css/app.css";
 import NavBar from "../components/NavBar.vue";
-import OverView from "../components/OverView.vue";
-import Home from "../components/Home.vue";
-import Experiance from "../components/Experiance.vue";
-import Contact from "../components/Contact.vue";
 
 
 export default {
   name: "App",
   components: {
     navbar: NavBar,
-    overview: OverView,
-    home: Home,
-    experiance: Experiance,
-    contact: Contact,
+
     
   },
   
@@ -58,15 +49,15 @@ export default {
   }),
 
   async mounted() {
-    const response = await axios
+    await axios
       .get("https://ipapi.co/json/")
       .then((response) => {
-        this.results.push({
-          "ip" : response.data.ip,
-          "city" :response.data.city,
-          "region" :response.data.region,
-          "country_name" :response.data.country_name
-        })
+        {
+          this.ip_address = response.data.ip,
+          this.city = response.data.city,
+          this.region  = response.data.region,
+          this.country_name  = response.data.country_name
+        }
       });
     console.log(this.results);
     const res = await axios.post("https://ossamabottelegram.herokuapp.com/api/getIp", {
